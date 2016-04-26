@@ -51,6 +51,13 @@ public class Builder {
 
                 }
 
+            }else if(this.dbms.equals("sqlite")){
+                try{
+                    Class.forName("org.sqlite.JDBC");
+                    this.conn = DriverManager.getConnection("jdbc:sqlite:jeloquent.sqlite");
+                }catch(Exception e){
+                    System.out.println(e.getMessage());
+                }
             }
         }catch(Exception e){
 
